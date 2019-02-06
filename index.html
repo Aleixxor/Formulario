@@ -13,13 +13,14 @@
     />
     <link rel="stylesheet" href="css/masking-input.css" />
     <link rel="stylesheet" href="css/autocomplete.css" />
+    <link rel="stylesheet" href="css/custom.css">
   </head>
 
   <body style="padding:30px; padding-left: 10%; padding-right: 10%">
     <form onsubmit="salvarFormulario(this)">
       <fieldset disabled>
         <legend>1) Identificação do Usuário:</legend>
-        <div class="form-row">
+        <div class="form-row toggler">
           <div class="col-md-4 mb-3">
             <label for="input_protocolo">Protocolo</label>
             <input type="text" class="form-control " id="input_protocolo" />
@@ -112,6 +113,7 @@
 
       <fieldset>
         <legend>2) Dados Civis:</legend>
+        <div class="toggler">
         <div class="form-row">
           <div class="col-md-4 mb-3">
             <label for="input_nomeCivil">Nome Civil</label>
@@ -174,7 +176,7 @@
 
         <fieldset>
           <legend>2.1) Dados de Nascimento:</legend>
-          <div class="form-row">
+          <div class="form-row toggler">
             <div class="col-md-4 mb-3">
               <label for="input_dataNascimento">Data de Nascimento</label>
               <input
@@ -242,7 +244,7 @@
         </fieldset>
         <fieldset>
             <legend>2.2) Geral:</legend>
-            <div class="form-row">
+            <div class="form-row toggler">
               <div class="col-md-2 mb-3">
                 <label for="input_tipoSanguineo">Tipo Sanguíneo</label>
                 <select class="form-control" id="input_tipoSanguineo" required>
@@ -297,11 +299,12 @@
               </div>
             </div>
           </fieldset>
+        </div>
       </fieldset>
       <hr />
       <fieldset>
           <legend>3) Dados para Contato:</legend>
-          <div class="form-row">
+          <div class="form-row toggler">
               <div class="col-md-4 mb-3">
                   <label for="input_email">Email</label>
                   <input
@@ -374,6 +377,9 @@
               </div>
           </div>
         </fieldset>
+<hr>
+      <fieldset>
+          <legend>4) Dados de Endereço:</legend>
       
       <!-- <div class="col-md-4 mb-3">
             <label for="input_username">Usuário</label>
@@ -395,74 +401,74 @@
               </div>
             </div>
           </div> -->
-      <div class="form-row">
-        <div class="col-md-3 mb-3">
-          <label for="input_cep">CEP</label>
-          <input
-            type="text"
-            invalid-value=""
-            class="form-control "
-            id="input_cep"
-            data-mask="00000-000"
-            placeholder="_____-___"
-            required
-          />
-        </div>
-        <div class="col-md-6 mb-3">
-          <label for="input_cidade">Cidade</label>
-          <input
-            type="text"
-            class="form-control "
-            invalid-value=""
-            id="input_cidade"
-            placeholder="Cidade"
-            required
-          />
-          <div class="invalid-feedback">
-            Por favor, escolha uma cidade válida.
+        <div class="form-row toggler">
+          <div class="col-md-3 mb-3">
+            <label for="input_cep">CEP</label>
+            <input
+              type="text"
+              invalid-value=""
+              class="form-control "
+              id="input_cep"
+              data-mask="00000-000"
+              placeholder="_____-___"
+              required
+            />
           </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label for="input_uf">Estado</label>
-          <select class="form-control" id="input_uf" required>
-            <option disabled selected value>
-              -- Selecione um Estado --
-            </option>
-          </select>
-          <div class="invalid-feedback">
-            Por favor, selecione um Estado válido.
-          </div>
-        </div>
-        <div class="col-md-6 mb-3">
-            <label for="input_logradouro">Rua</label>
+          <div class="col-md-6 mb-3">
+            <label for="input_cidade">Cidade</label>
             <input
               type="text"
               class="form-control "
               invalid-value=""
-              id="input_logradouro"
-              placeholder="Logradouro"
+              id="input_cidade"
+              placeholder="Cidade"
               required
             />
             <div class="invalid-feedback">
-              Por favor, escolha uma rua válida.
+              Por favor, escolha uma cidade válida.
             </div>
           </div>
-        <div class="col-md-3 mb-3">
-            <label for="input_bairro">Bairro</label>
-            <input
-              type="text"
-              class="form-control "
-              invalid-value=""
-              id="input_bairro"
-              placeholder="Bairro"
-              required
-            />
+          <div class="col-md-3 mb-3">
+            <label for="input_uf">Estado</label>
+            <select class="form-control" id="input_uf" required>
+              <option disabled selected value>
+                -- Selecione um Estado --
+              </option>
+            </select>
             <div class="invalid-feedback">
-              Por favor, escolha um bairro válido.
+              Por favor, selecione um Estado válido.
             </div>
           </div>
-          
-            <div class="col-md-3 mb-3">
+          <div class="col-md-6 mb-3">
+              <label for="input_logradouro">Rua</label>
+              <input
+                type="text"
+                class="form-control "
+                invalid-value=""
+                id="input_logradouro"
+                placeholder="Logradouro"
+                required
+              />
+              <div class="invalid-feedback">
+                Por favor, escolha uma rua válida.
+              </div>
+            </div>
+          <div class="col-md-3 mb-3">
+              <label for="input_bairro">Bairro</label>
+              <input
+                type="text"
+                class="form-control "
+                invalid-value=""
+                id="input_bairro"
+                placeholder="Bairro"
+                required
+              />
+              <div class="invalid-feedback">
+                Por favor, escolha um bairro válido.
+              </div>
+            </div>
+            
+              <div class="col-md-3 mb-3">
                 <label for="input_complemento">Complemento</label>
                 <input
                   type="text"
@@ -476,7 +482,8 @@
                   Por favor, escolha uma cidade válida.
                 </div>
               </div>
-      </div>
+        </div>
+      </fieldset>
 
       <div class="form-group">
         <div class="form-check">

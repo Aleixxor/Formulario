@@ -40,6 +40,13 @@ $("select[id=input_etnia]").change(function() {
     }
 });
 
+$("legend").click(function(e){
+    e.preventDefault();
+    var _parent = $(this).parent("fieldset");
+    var _toggler = _parent.children(".toggler");
+    _toggler.toggle();
+})
+
 input_etniaOText
 
 carregarSelectOptions(exibirSelectOptions, "data/estados.json", "input_uf");
@@ -125,4 +132,8 @@ function exibirSelectOptions(id, options){
         }
         select.appendChild(el);
     }
+}
+
+function toggleSection(){
+    alert('entrou caraio');
 }

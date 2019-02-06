@@ -1,0 +1,7 @@
+legend {
+    cursor: pointer;
+}
+
+legend:hover {
+    background-color: lightcyan;
+}
