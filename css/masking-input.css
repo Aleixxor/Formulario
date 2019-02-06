@@ -1,0 +1,11 @@
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+    
+.form-control:disabled {
+  cursor: not-allowed;
+}
+
+.input_sexoOTextOpcional, .input_nacionalidadeOTextOpcional, .input_etniaOTextOpcional{
+  display: none;
+}

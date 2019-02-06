@@ -1,0 +1,522 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>qEstionário</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/masking-input.css" />
+    <link rel="stylesheet" href="css/autocomplete.css" />
+  </head>
+
+  <body style="padding:30px; padding-left: 10%; padding-right: 10%">
+    <form onsubmit="salvarFormulario(this)">
+      <fieldset disabled>
+        <legend>1) Identificação do Usuário:</legend>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="input_protocolo">Protocolo</label>
+            <input type="text" class="form-control " id="input_protocolo" />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="input_nInscricao">N Inscrição</label>
+            <input type="text" class="form-control " id="input_nInscricao" />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="input_classificacao">Classificação</label>
+            <input type="text" class="form-control " id="input_classificacao" />
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="input_nomeCandidato"
+              >Nome do candidato
+              <a href="#" style="font-size: 12"
+                >Solicitar alteração de nome</a
+              ></label
+            >
+            <input
+              type="text"
+              class="form-control "
+              id="input_nome"
+              invalid-value=""
+            />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="input_campus">Campus</label>
+            <input
+              type="text"
+              class="form-control "
+              id="input_campus"
+              invalid-value=""
+            />
+          </div>
+          <div class="col-md-2 mb-3">
+            <label for="input_curso">Curso</label>
+            <input
+              type="text"
+              class="form-control "
+              id="input_curso"
+              invalid-value=""
+            />
+          </div>
+          <div class="col-md-2 mb-3">
+            <label for="input_turno">Turno</label>
+            <input
+              type="text"
+              class="form-control "
+              id="input_turno"
+              invalid-value=""
+            />
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="input_polo">Polo</label>
+            <input
+              type="text"
+              class="form-control "
+              id="input_polo"
+              invalid-value=""
+              placeholder="Só exibir se houver conteúdo"
+            />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="input_turno">Ações Afirmativas</label>
+            <input
+              type="text"
+              class="form-control "
+              id="input_turno"
+              invalid-value=""
+              placeholder="Só exibir se houver conteúdo"
+            />
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="input_notas">Resultado no Processo Seletivo</label>
+            <input
+              type="text"
+              class="form-control "
+              id="input_notas"
+              placeholder="Só exibir se houver conteúdo"
+              invalid-value=""
+            />
+          </div>
+        </div>
+      </fieldset>
+
+      <hr />
+
+      <fieldset>
+        <legend>2) Dados Civis:</legend>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="input_nomeCivil">Nome Civil</label>
+            <input
+              type="text"
+              invalid-value=""
+              class="form-control "
+              id="input_nomeCivil"
+              required
+            />
+            <div class="valid-feedback">Parece bom!</div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="input_sexo">Gênero</label>
+            <div class="row">
+              <center class="col-xs-4 col-md-4  col-4">
+                <input
+                  type="radio"
+                  name="input_sexo"
+                  class="form-control"
+                  id="input_sexoM"
+                  value="Masculino"
+                />
+                <label>Masculino</label>
+              </center>
+              <center class="col-xs-4 col-md-4  col-4">
+                <input
+                  type="radio"
+                  name="input_sexo"
+                  class="form-control"
+                  id="input_sexoF"
+                  value="Feminino"
+                />
+                <label>Feminino</label>
+              </center>
+              <center class="col-xs-4 col-md-4 col-4">
+                <input
+                  type="radio"
+                  name="input_sexo"
+                  class="form-control"
+                  id="input_sexoO"
+                  value="Outro"
+                />
+                <label>Outro</label>
+              </center>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3 input_sexoOTextOpcional">
+            <label for="input_sexoOText">Qual?</label>
+            <input
+              type="text"
+              class="form-control "
+              id="input_sexoOText"
+              placeholder=""
+              invalid-value=""
+            />
+            <div class="valid-feedback">Parece bom!</div>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>2.1) Dados de Nascimento:</legend>
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="input_dataNascimento">Data de Nascimento</label>
+              <input
+                type="date"
+                class="form-control "
+                id="input_dataNascimento"
+                placeholder="__/__/__"
+                invalid-value=""
+                required
+              />
+              <div class="valid-feedback">Parece bom!</div>
+            </div>
+            <div class="col-md-2 mb-3">
+              <label for="input_nacionalidade">Nacionalidade</label>
+              <select class="form-control" id="input_nacionalidade" required>
+                <option disabled selected value>
+                  -- Selecione uma nacionalidade --
+                </option>
+              </select>
+              <div class="invalid-feedback">
+                Por favor, selecione uma nacionalidade válida.
+              </div>
+            </div>
+            <div class="col-md-2 mb-3">
+              <label for="input_nacionalidade2">Nacionalidade (2)</label>
+              <select class="form-control" id="input_nacionalidade2" required>
+                <option disabled selected value>
+                  -- Selecione uma nacionalidade --
+                </option>
+                <option value="Brasileiro(a)">
+                  Brasileiro(a)
+                </option>
+                <option value="Outra">
+                  Outra...
+                </option>
+              </select>
+              <div class="invalid-feedback">
+                Por favor, selecione uma nacionalidade válida.
+              </div>
+            </div>
+            <div class="col-md-4 mb-3 input_nacionalidadeOTextOpcional">
+              <label for="input_nacionalidadeOText">País de Nascimento</label>
+              <input
+                type="text"
+                class="form-control "
+                id="input_nacionalidadeOText"
+                placeholder=""
+                invalid-value=""
+              />
+              <div class="valid-feedback">Parece bom!</div>
+            </div>
+            <div class="col-md-4 mb-3 input_naturalidade">
+                <label for="input_naturalidade">Naturalidade</label>
+                <input
+                  type="text"
+                  class="form-control "
+                  id="input_naturalidade"
+                  autocomplete="nope"
+                  placeholder=""
+                  invalid-value=""
+                />
+                <div class="valid-feedback">Parece bom!</div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+            <legend>2.2) Geral:</legend>
+            <div class="form-row">
+              <div class="col-md-2 mb-3">
+                <label for="input_tipoSanguineo">Tipo Sanguíneo</label>
+                <select class="form-control" id="input_tipoSanguineo" required>
+                    <option disabled selected value>
+                      -- Selecione --
+                    </option>
+                  </select>
+                <div class="valid-feedback">Parece bom!</div>
+              </div>
+              <div class="col-md-2 mb-3">
+                  <label for="input_estadoCivil">Estado Civil</label>
+                  <select class="form-control" id="input_estadoCivil" required>
+                      <option disabled selected value>
+                        -- Selecione --
+                      </option>
+                    </select>
+                  <div class="valid-feedback">Parece bom!</div>
+                </div>
+              <div class="col-md-2 mb-3">
+                <label for="input_etnia">Etnia</label>
+                <select class="form-control" id="input_etnia" required>
+                  <option disabled selected value>
+                    -- Selecione --
+                  </option>
+                </select>
+                <div class="valid-feedback">
+                  Parece bom!
+                </div>
+              </div>
+              <div class="col-md-2 mb-3 input_etniaOTextOpcional">
+                  <label for="input_etniaOText">Qual etnia?</label>
+                      <input
+                      type="text"
+                      class="form-control "
+                      id="input_etniaOText"
+                      placeholder=""
+                      invalid-value=""
+                    />
+                    <div class="valid-feedback">Parece bom!</div>
+              </div>
+              <div class="col-md-2 mb-3">
+                  <label for="input_possuiFoto">Possui foto?</label>
+                      <input
+                      type="text"
+                      class="form-control "
+                      id="input_possuiFoto"
+                      placeholder=""
+                      invalid-value=""
+                      value="SIM"
+                      disabled
+                    />
+              </div>
+            </div>
+          </fieldset>
+      </fieldset>
+      <hr />
+      <fieldset>
+          <legend>3) Dados para Contato:</legend>
+          <div class="form-row">
+              <div class="col-md-4 mb-3">
+                  <label for="input_email">Email</label>
+                  <input
+                    type="email"
+                    class="form-control "
+                    id="input_email"
+                    placeholder="exemplo@mail.com"
+                    invalid-value=""
+                    required
+                  />
+                  <div class="valid-feedback">Parece bom!</div>
+                </div>
+            <div class="col-md-2 mb-3">
+                <label for="input_url">URL</label>
+                    <input
+                    type="url"
+                    class="form-control "
+                    id="input_url"
+                    placeholder="https://"
+                    invalid-value=""
+                  />
+                  <div class="valid-feedback">Parece bom!</div>
+            </div>
+            <div class="col-md-2 mb-3">
+                <label for="input_facebook">Facebook</label>
+                    <input
+                    type="url"
+                    class="form-control "
+                    id="input_facebook"
+                    placeholder="https://"
+                    invalid-value=""
+                  />
+                  <div class="valid-feedback">Parece bom!</div>
+            </div>
+            <div class="col-md-2 mb-3">
+                <label for="input_linkedin">LinkedIn</label>
+                    <input
+                    type="url"
+                    class="form-control "
+                    id="input_linkedin"
+                    placeholder="https://"
+                    invalid-value=""
+                  />
+                  <div class="valid-feedback">Parece bom!</div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="input_resideBrasil">Reside no Brasil?</label>
+                <div class="row">
+                  <center class="col-xs-4 col-md-4  col-4">
+                    <input
+                      type="radio"
+                      name="input_resideBrasil"
+                      class="form-control"
+                      id="input_sexoM"
+                      value="Sim"
+                    />
+                    <label>Sim</label>
+                  </center>
+                  <center class="col-xs-4 col-md-4  col-4">
+                    <input
+                      type="radio"
+                      name="input_resideBrasil"
+                      class="form-control"
+                      id="input_sexoF"
+                      value="Não"
+                    />
+                    <label>Não</label>
+                  </center>
+                </div>
+              </div>
+          </div>
+        </fieldset>
+      
+      <!-- <div class="col-md-4 mb-3">
+            <label for="input_username">Usuário</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend3">@</span>
+              </div>
+              <input
+                type="text"
+                class="form-control "
+                id="input_username"
+                placeholder="Digite seu usuário"
+                invalid-value=""
+                aria-describedby="inputGroupPrepend3"
+                required
+              />
+              <div class="invalid-feedback">
+                Por favor, escolha um nome de usuário.
+              </div>
+            </div>
+          </div> -->
+      <div class="form-row">
+        <div class="col-md-3 mb-3">
+          <label for="input_cep">CEP</label>
+          <input
+            type="text"
+            invalid-value=""
+            class="form-control "
+            id="input_cep"
+            data-mask="00000-000"
+            placeholder="_____-___"
+            required
+          />
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="input_cidade">Cidade</label>
+          <input
+            type="text"
+            class="form-control "
+            invalid-value=""
+            id="input_cidade"
+            placeholder="Cidade"
+            required
+          />
+          <div class="invalid-feedback">
+            Por favor, escolha uma cidade válida.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="input_uf">Estado</label>
+          <select class="form-control" id="input_uf" required>
+            <option disabled selected value>
+              -- Selecione um Estado --
+            </option>
+          </select>
+          <div class="invalid-feedback">
+            Por favor, selecione um Estado válido.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="input_logradouro">Rua</label>
+            <input
+              type="text"
+              class="form-control "
+              invalid-value=""
+              id="input_logradouro"
+              placeholder="Logradouro"
+              required
+            />
+            <div class="invalid-feedback">
+              Por favor, escolha uma rua válida.
+            </div>
+          </div>
+        <div class="col-md-3 mb-3">
+            <label for="input_bairro">Bairro</label>
+            <input
+              type="text"
+              class="form-control "
+              invalid-value=""
+              id="input_bairro"
+              placeholder="Bairro"
+              required
+            />
+            <div class="invalid-feedback">
+              Por favor, escolha um bairro válido.
+            </div>
+          </div>
+          
+            <div class="col-md-3 mb-3">
+                <label for="input_complemento">Complemento</label>
+                <input
+                  type="text"
+                  class="form-control "
+                  invalid-value=""
+                  id="input_complemento"
+                  placeholder="Complemento"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Por favor, escolha uma cidade válida.
+                </div>
+              </div>
+      </div>
+
+      <div class="form-group">
+        <div class="form-check">
+          <input
+            class="form-check-input "
+            type="checkbox"
+            invalid-value="false"
+            id="invalidCheck3"
+            required
+          />
+          <label class="form-check-label" for="invalidCheck3">
+            Aceito os termos e condições.
+          </label>
+          <div class="invalid-feedback">
+            Você precisa aceitar os termos e condições antes de enviar o
+            formulário.
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Enviar Formulário</button>
+    </form>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
+    <script src="js/auto-complete.js"></script>
+    <script src="form.js"></script>
+    
+  </body>
+</html>
