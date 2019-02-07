@@ -51,6 +51,7 @@ criarIdsLegends();
 $("button[type='submit']").click(function(){
     rodaTudoByAlex("legend");
     rodaTudoByAlex("legend");
+    setInvalid();
 })
 
 input_etniaOText
@@ -184,5 +185,19 @@ function criarIdsLegends()
     let l = $("legend");
     for(let x = 0; x<l.length; x++){
         l[x].id = "legend"+(x+1);
+    }
+}
+
+function setInvalid()
+{
+    let allRequired = $(":input[required]");
+    console.log(allRequired);
+    for(let i = 0; i < allRequired.length; i++)
+    {
+        let object = $("#"+allRequired[i].id);
+        if (!object.hasClass("is-valid"))
+        {
+            object.addClass("is-invalid");
+        }
     }
 }
