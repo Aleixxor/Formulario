@@ -1,7 +1,40 @@
 legend {
     cursor: pointer;
+    position: relative;
 }
 
 legend:hover {
     background-color: lightcyan;
+}
+
+fieldset.valido legend {
+    color: #43a047;
+}
+
+fieldset.invalido legend {
+    color: #f25d5d;
+}
+
+fieldset > legend img.checkIco, fieldset > legend img.alertIco {
+    display: block;
+    position: absolute;
+    width: 20px;
+    top: 13px;
+    right: 13px;
+}
+
+fieldset > legend img.checkIco, fieldset > legend img.alertIco {
+    display: none;
+}
+
+fieldset.closed.valido > legend img.checkIco {
+    display: block;
+}
+
+fieldset.closed.invalido > legend img.alertIco {
+    display: block;
+}
+
+fieldset.closed .toggler{
+    display: none;
 }

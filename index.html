@@ -18,8 +18,11 @@
 
   <body style="padding:30px; padding-left: 10%; padding-right: 10%">
     <form onsubmit="salvarFormulario(this)">
-      <fieldset disabled>
-        <legend>1) Identificação do Usuário:</legend>
+      <fieldset disabled class="opened">
+        <legend>1) Identificação do Usuário:
+            <img class="checkIco" src="img/6-512.png">
+            <img class="alertIco" src="img/alert_processing_965557.png">
+        </legend>
         <div class="form-row toggler">
           <div class="col-md-4 mb-3">
             <label for="input_protocolo">Protocolo</label>
@@ -111,8 +114,11 @@
 
       <hr />
 
-      <fieldset>
-        <legend>2) Dados Civis:</legend>
+      <fieldset class="closed">
+        <legend>2) Dados Civis:
+            <img class="checkIco" src="img/6-512.png">
+            <img class="alertIco" src="img/alert_processing_965557.png">
+        </legend>
         <div class="toggler">
         <div class="form-row">
           <div class="col-md-4 mb-3">
@@ -174,8 +180,11 @@
           </div>
         </div>
 
-        <fieldset>
-          <legend>2.1) Dados de Nascimento:</legend>
+        <fieldset class="opened">
+          <legend>2.1) Dados de Nascimento:
+              <img class="checkIco" src="img/6-512.png">
+              <img class="alertIco" src="img/alert_processing_965557.png">
+          </legend>
           <div class="form-row toggler">
             <div class="col-md-4 mb-3">
               <label for="input_dataNascimento">Data de Nascimento</label>
@@ -242,8 +251,11 @@
             </div>
           </div>
         </fieldset>
-        <fieldset>
-            <legend>2.2) Geral:</legend>
+        <fieldset class="opened">
+            <legend>2.2) Geral:
+                <img class="checkIco" src="img/6-512.png">
+                <img class="alertIco" src="img/alert_processing_965557.png">
+            </legend>
             <div class="form-row toggler">
               <div class="col-md-2 mb-3">
                 <label for="input_tipoSanguineo">Tipo Sanguíneo</label>
@@ -302,8 +314,11 @@
         </div>
       </fieldset>
       <hr />
-      <fieldset>
-          <legend>3) Dados para Contato:</legend>
+      <fieldset class="closed">
+        <legend>3) Dados para Contato:
+          <img class="checkIco" src="img/6-512.png">
+          <img class="alertIco" src="img/alert_processing_965557.png">
+        </legend>
           <div class="form-row toggler">
               <div class="col-md-4 mb-3">
                   <label for="input_email">Email</label>
@@ -378,8 +393,11 @@
           </div>
         </fieldset>
 <hr>
-      <fieldset>
-          <legend>4) Dados de Endereço:</legend>
+      <fieldset class="closed">
+          <legend>4) Dados de Endereço:
+              <img class="checkIco" src="img/6-512.png">
+              <img class="alertIco" src="img/alert_processing_965557.png">
+          </legend>
       
       <!-- <div class="col-md-4 mb-3">
             <label for="input_username">Usuário</label>
@@ -454,37 +472,30 @@
               </div>
             </div>
           <div class="col-md-3 mb-3">
-              <label for="input_bairro">Bairro</label>
-              <input
-                type="text"
-                class="form-control "
-                invalid-value=""
-                id="input_bairro"
-                placeholder="Bairro"
-                required
-              />
-              <div class="invalid-feedback">
-                Por favor, escolha um bairro válido.
-              </div>
+            <label for="input_bairro">Bairro</label>
+            <input
+              type="text"
+              class="form-control "
+              invalid-value=""
+              id="input_bairro"
+              placeholder="Bairro"
+              required
+            />
+            <div class="invalid-feedback">
+              Por favor, escolha um bairro válido.
             </div>
+          </div>
             
-              <div class="col-md-3 mb-3">
-                <label for="input_complemento">Complemento</label>
-                <input
-                  type="text"
-                  class="form-control "
-                  invalid-value=""
-                  id="input_complemento"
-                  placeholder="Complemento"
-                  required
-                />
-                <div class="invalid-feedback">
-                  Por favor, escolha uma cidade válida.
-                </div>
-              </div>
+          <div class="col-md-3 mb-3">
+            <label for="input_complemento">Complemento</label>
+            <input type="text" class="form-control " invalid-value="" id="input_complemento" placeholder="Complemento" />
+            <div class="invalid-feedback">
+              Por favor, escolha uma cidade válida.
+            </div>
+          </div>
         </div>
       </fieldset>
-
+      <hr>
       <div class="form-group">
         <div class="form-check">
           <input

@@ -43,8 +43,14 @@ $("select[id=input_etnia]").change(function() {
 $("legend").click(function(e){
     e.preventDefault();
     var _parent = $(this).parent("fieldset");
-    var _toggler = _parent.children(".toggler");
-    _toggler.toggle();
+    newToggle(_parent);
+})
+
+criarIdsLegends();
+
+$("button[type='submit']").click(function(){
+    rodaTudoByAlex("legend");
+    rodaTudoByAlex("legend");
 })
 
 input_etniaOText
@@ -92,11 +98,11 @@ function getAddressFromCEP(cep){
 
 function exibirInformacoesEndereco(endereco){
     console.log(endereco)
-    $("#input_cidade").val(endereco.localidade);
-    $("#input_uf").val(endereco.uf);
-    $("#input_logradouro").val(endereco.logradouro);
-    $("#input_bairro").val(endereco.bairro);
-    $("#input_complemento").val(endereco.complemento);
+    $("#input_cidade").val(endereco.localidade).addClass('is-valid');
+    $("#input_uf").val(endereco.uf).addClass('is-valid');
+    $("#input_logradouro").val(endereco.logradouro).addClass('is-valid');
+    $("#input_bairro").val(endereco.bairro).addClass('is-valid');
+    if(endereco.complemento){$("#input_complemento").val(endereco.complemento).addClass('is-valid')};
 }
 
 function carregarSelectOptions(func, path, id) {
@@ -134,6 +140,49 @@ function exibirSelectOptions(id, options){
     }
 }
 
-function toggleSection(){
-    alert('entrou caraio');
+function newToggle (elemento)
+{
+    if(elemento.hasClass("opened"))
+    {
+        if(checkValid(elemento) == 0)
+        {
+            elemento.addClass("valido");
+        }
+        else
+        {
+            elemento.addClass("invalido");
+        }
+        elemento.removeClass("opened");
+        elemento.addClass("closed");
+    }
+    else
+    {
+        elemento.removeClass("invalido");
+        elemento.removeClass("valido");
+        elemento.removeClass("closed");
+        elemento.addClass("opened");
+    }
+}
+
+function checkValid(elemento)
+{
+    var _allInputs = $(":input[required]", elemento);
+    var _allValid = $(":input.is-valid[required]", elemento);
+    return _allInputs.length - _allValid.length;
+}
+
+function rodaTudoByAlex(elemento){ 
+    elemento = $(elemento);
+    for(let x = 0; x<elemento.length; x++)
+    { 
+        $("#"+elemento[x].id).trigger("click");
+    }
+}
+
+function criarIdsLegends()
+{
+    let l = $("legend");
+    for(let x = 0; x<l.length; x++){
+        l[x].id = "legend"+(x+1);
+    }
 }
