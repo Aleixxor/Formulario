@@ -98,12 +98,11 @@ function getAddressFromCEP(cep){
 }
 
 function exibirInformacoesEndereco(endereco){
-    console.log(endereco)
-    $("#input_cidade").val(endereco.localidade).addClass('is-valid');
-    $("#input_uf").val(endereco.uf).addClass('is-valid');
-    $("#input_logradouro").val(endereco.logradouro).addClass('is-valid');
-    $("#input_bairro").val(endereco.bairro).addClass('is-valid');
-    if(endereco.complemento){$("#input_complemento").val(endereco.complemento).addClass('is-valid')};
+    $("#input_cidade").val(endereco.localidade).addClass('is-valid').removeClass("is-invalid");
+    $("#input_uf").val(endereco.uf).addClass('is-valid').removeClass("is-invalid");
+    $("#input_logradouro").val(endereco.logradouro).addClass('is-valid').removeClass("is-invalid");
+    $("#input_bairro").val(endereco.bairro).addClass('is-valid').removeClass("is-invalid");
+    if(endereco.complemento){$("#input_complemento").val(endereco.complemento).addClass('is-valid').removeClass("is-invalid")};
 }
 
 function carregarSelectOptions(func, path, id) {
@@ -191,7 +190,6 @@ function criarIdsLegends()
 function setInvalid()
 {
     let allRequired = $(":input[required]");
-    console.log(allRequired);
     for(let i = 0; i < allRequired.length; i++)
     {
         let object = $("#"+allRequired[i].id);

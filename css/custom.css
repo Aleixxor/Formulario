@@ -38,3 +38,9 @@ fieldset.closed.invalido > legend img.alertIco {
 fieldset.closed .toggler{
     display: none;
 }
+
+.form-control.is-invalid:not([required]), .was-validated .form-control:invalid:not([required])
+{
+    border-color: #ced4da;
+    background-image: none;
+}
