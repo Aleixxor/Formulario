@@ -1,6 +1,13 @@
+hr {
+    margin: 0;
+    border-top: 1px solid rgba(0,0,0,0.2);
+}
+
 legend {
     cursor: pointer;
     position: relative;
+    padding: 16px 16px 16px;
+    margin-bottom: 0
 }
 
 legend:hover {
@@ -9,18 +16,21 @@ legend:hover {
 
 fieldset.valido legend {
     color: #43a047;
+    background-color: rgba(67, 160, 71, 0.1)
 }
 
 fieldset.invalido legend {
     color: #f25d5d;
+    background-color: rgba(242, 93, 93, 0.1)
 }
 
 fieldset > legend img.checkIco, fieldset > legend img.alertIco {
     display: block;
     position: absolute;
     width: 20px;
-    top: 13px;
+    top: 50%;
     right: 13px;
+    margin-top: -10px;
 }
 
 fieldset > legend img.checkIco, fieldset > legend img.alertIco {
@@ -43,4 +53,8 @@ fieldset.closed .toggler{
 {
     border-color: #ced4da;
     background-image: none;
+}
+
+.form-check {
+    margin-top: 16px;
 }

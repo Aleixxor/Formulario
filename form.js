@@ -43,13 +43,17 @@ $("select[id=input_etnia]").change(function() {
 $("legend").click(function(e){
     e.preventDefault();
     var _parent = $(this).parent("fieldset");
+    if(_parent.hasClass("opened"))
+    {
+        setInvalid(_parent);
+    }
     newToggle(_parent);
 })
 
 criarIdsLegends();
 
 $("button[type='submit']").click(function(){
-    rodaTudoByAlex("legend");
+    ($("legend").parent("fieldset")).addClass("opened").removeClass("closed");
     rodaTudoByAlex("legend");
     setInvalid();
 })
@@ -90,6 +94,7 @@ function getAddressFromCEP(cep){
           fileReader.addEventListener('load', function(){
             data = JSON.parse(fileReader.result);
             exibirInformacoesEndereco(data);
+            console.log(data.erro)
           });
           fileReader.readAsText(file);
       } 
@@ -98,11 +103,18 @@ function getAddressFromCEP(cep){
 }
 
 function exibirInformacoesEndereco(endereco){
-    $("#input_cidade").val(endereco.localidade).addClass('is-valid').removeClass("is-invalid");
-    $("#input_uf").val(endereco.uf).addClass('is-valid').removeClass("is-invalid");
-    $("#input_logradouro").val(endereco.logradouro).addClass('is-valid').removeClass("is-invalid");
-    $("#input_bairro").val(endereco.bairro).addClass('is-valid').removeClass("is-invalid");
-    if(endereco.complemento){$("#input_complemento").val(endereco.complemento).addClass('is-valid').removeClass("is-invalid")};
+    if(! endereco.erro == true)
+    {
+        $("#input_cidade").val(endereco.localidade).addClass('is-valid').removeClass("is-invalid");
+        $("#input_uf").val(endereco.uf).addClass('is-valid').removeClass("is-invalid");
+        $("#input_logradouro").val(endereco.logradouro).addClass('is-valid').removeClass("is-invalid");
+        $("#input_bairro").val(endereco.bairro).addClass('is-valid').removeClass("is-invalid");
+        if(endereco.complemento){$("#input_complemento").val(endereco.complemento).addClass('is-valid').removeClass("is-invalid")};
+    }
+    else
+    {
+        $("#input_cep").val(null).addClass('is-invalid').removeClass("is-valid");
+    }
 }
 
 function carregarSelectOptions(func, path, id) {
@@ -171,10 +183,10 @@ function checkValid(elemento)
     return _allInputs.length - _allValid.length;
 }
 
-function rodaTudoByAlex(elemento){ 
+function rodaTudoByAlex(elemento){
     elemento = $(elemento);
     for(let x = 0; x<elemento.length; x++)
-    { 
+    {
         $("#"+elemento[x].id).trigger("click");
     }
 }
@@ -187,9 +199,10 @@ function criarIdsLegends()
     }
 }
 
-function setInvalid()
+function setInvalid(elemento = $("body"))
 {
-    let allRequired = $(":input[required]");
+    let _elemento = elemento;
+    let allRequired = $(":input[required]", _elemento);
     for(let i = 0; i < allRequired.length; i++)
     {
         let object = $("#"+allRequired[i].id);
