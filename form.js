@@ -58,6 +58,18 @@ $("button[type='submit']").click(function(){
     setInvalid();
 })
 
+$("input[type='checkbox']").click(function(){
+    var _parent = $(this).parent(".form-check");
+    if(_parent.hasClass("checkboxChecked"))
+    {
+        _parent.removeClass("checkboxChecked");
+    }
+    else
+    {
+        _parent.addClass("checkboxChecked");
+    }
+})
+
 input_etniaOText
 
 carregarSelectOptions(exibirSelectOptions, "data/estados.json", "input_uf");

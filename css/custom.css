@@ -58,3 +58,7 @@ fieldset.closed .toggler{
 .form-check {
     margin-top: 16px;
 }
+
+.checkboxChecked .invalid-feedback {
+    display: none !important;
+}
